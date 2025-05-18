@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant U as Usuario
+    participant C as Cliente (App)
+    participant AS as Servidor de Autorización
+    participant RS as Servidor de Recursos
+
+    C->>U: Redirige al usuario
+    U->>AS: GET /authorize
+    
+    AS->>U: Página de login y consentimiento
+    U->>AS: Credenciales y consentimiento
+
+    AS->>U: Redirige con código de autorización
+    U->>C: Entrega el código
+
+    C->>AS: POST /token (intercambio de código)
+    
+    AS->>C: Responde con tokens
+    
+    C->>RS: Solicita recurso con access_token
+    
+    RS->>C: Entrega datos solicitados
+
+    C->>AS: Solicita refresh del token
+    
+    AS->>C: Nuevos tokens

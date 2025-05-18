@@ -41,7 +41,7 @@
     "display.on.consent.screen": "false",
     "oauth2.device.authorization.grant.enabled": "false",
     "backchannel.logout.revoke.offline.tokens": "false",
-    "login_theme": "",
+    "login_theme": "keycloak.v2",
     "consent.screen.text": "",
     "frontchannel.logout.url": ""
   },
@@ -51,15 +51,16 @@
   "defaultClientScopes": [
     "web-origins",
     "acr",
-    "roles",
-    "profile",
-    "email"
+    "api1"
   ],
   "optionalClientScopes": [
     "address",
     "phone",
     "offline_access",
-    "microprofile-jwt"
+    "roles",
+    "profile",
+    "microprofile-jwt",
+    "email"
   ],
   "access": {
     "view": true,
